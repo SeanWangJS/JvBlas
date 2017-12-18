@@ -11,6 +11,8 @@ import java.lang.reflect.Field;
 public class JBlas {
 
     static{
+
+        System.out.println(this.getClass().getClassLoader().getResource("relative "));
         System.setProperty("java.library.path", "C:\\Users\\wangx\\OneDrive\\workspace\\ideaw\\jblas\\lib");
         Field sysPaths = null;
         try {
