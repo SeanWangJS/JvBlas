@@ -1,8 +1,5 @@
 package com.haswalk.jvblas.benchmark;
 
-import com.haswalk.jvblas.JvBlas;
-import com.haswalk.jvblas.JvBlasLayout;
-import com.haswalk.jvblas.JvBlasTranspose;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
@@ -11,15 +8,19 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Created by wangx on 2018/2/5.
+ */
+
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @State(Scope.Thread)
-public class DgemmBenchmark {
+public class DgemmBenchmark_java {
 
     private double[] A, B, C;
     private int m, n, k;
     private int LDA, LDB, LDC;
-    public DgemmBenchmark() {
+    public DgemmBenchmark_java() {
         m = 2000;
         n = 200;
         k = 1000;
@@ -41,15 +42,22 @@ public class DgemmBenchmark {
 
     @Benchmark
     public void run() {
-        double alpha = 1;
-        double beta = 0;
-        JvBlas.dgemm(JvBlasLayout.ROW_MAJOR, JvBlasTranspose.NO_TRANS, JvBlasTranspose.NO_TRANS,
-                m, n, k, alpha, A, LDA, B, LDB, beta, C, LDC);
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                double v = 0;
+                for (int l = 0; l < k; l++) {
+                    v += A[i * k + l] * B[l * n + j];
+                }
+                C[i * n + j] = v;
+            }
+        }
     }
 
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
-                .include(DgemmBenchmark.class.getSimpleName())
+                .include(DgemmBenchmark_java.class.getSimpleName())
+                .warmupIterations(8)
+                .measurementIterations(5)
                 .forks(1)
                 .build();
         new Runner(opt).run();

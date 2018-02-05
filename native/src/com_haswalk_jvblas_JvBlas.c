@@ -1,7 +1,11 @@
 
+#include <stdlib.h>
 #include <jni.h>
 #include <assert.h>
+#include "mkl.h"
 #include "mkl_cblas.h"
+
+
 
 #ifndef _Included_com_haswalk_jvblas_JvBlas
 #define _Included_com_haswalk_jvblas_JvBlas
@@ -124,9 +128,10 @@ JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dgemm
 	bElems = (*env) -> GetDoubleArrayElements(env, B, NULL);
 	cElems = (*env) -> GetDoubleArrayElements(env, C, NULL);
 	assert(aElems && bElems && cElems);
-	
-	cblas_dgemm((CBLAS_ORDER) order, (CBLAS_TRANSPOSE) transA, 
+
+	cblas_dgemm((CBLAS_ORDER) order, (CBLAS_TRANSPOSE) transA,
 	(CBLAS_TRANSPOSE) transB, (int)m, (int)n, (int)k, alpha, aElems, (int)LDA, bElems, (int)LDB, beta, cElems, (int)LDC);
+
 	(*env) -> ReleaseDoubleArrayElements(env, C, cElems, 0);
 	(*env) -> ReleaseDoubleArrayElements(env, B, bElems, JNI_ABORT);
 	(*env) -> ReleaseDoubleArrayElements(env, A, aElems, JNI_ABORT);

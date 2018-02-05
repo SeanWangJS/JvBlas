@@ -6,7 +6,7 @@ JvBlas is a lightweight Java&trade; binding for BLAS library API based on Intel&
 
 ## Usage
 
-For users, One need to first install [Intel&reg; Math Kernel Library](https://software.intel.com/en-us/mkl), and then add the paths of  "include" and "lib" folders in the MKL to System Environment Variable PATH.
+For users, One need to first install [Intel&reg; Math Kernel Library](https://software.intel.com/en-us/mkl), and then add the paths of  "include" and "lib" folders in the MKL to System Environment Variable PATH. Next, set the VM options as -Djava.library.path=<the absolute path of dll file in the .\native\lib folder> 
 
 For developers, the .h .c and .o files are in the .\native\src folder, to generate the header file, use
 ```

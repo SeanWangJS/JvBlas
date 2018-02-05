@@ -2,6 +2,8 @@ package com.haswalk.jvblas;
 
 //import org.intellij.lang.annotations.MagicConstant;
 
+import java.lang.reflect.Field;
+
 /**
  * Created by wangx on 2017/10/10.
  */
@@ -9,7 +11,9 @@ public class JvBlas {
 
     static{
 
-//        System.setProperty("java.library.path", "C:\\Users\\wangx\\OneDrive\\workspace\\ideaw\\jvblas\\native\\lib");
+//        System.setProperty("java.library.path", "C:\\Users\\wangx\\OneDrive\\workspace\\ideaw\\jblas\\native\\lib");
+//        System.out.println(System.getProperty("user.dir"));
+//        System.setProperty("java.library.path", System.getProperty("user.dir")+"\\jblas\\native\\lib");
 //        Field sysPaths = null;
 //        try {
 //            sysPaths = ClassLoader.class.getDeclaredField("sys_paths");
@@ -22,7 +26,7 @@ public class JvBlas {
 //        } catch (IllegalAccessException e) {
 //            e.printStackTrace();
 //        }
-//        System.loadLibrary("com_haswalk_jblas_JBlas");
+//        System.loadLibrary("com_haswalk_jvblas_JvBlas");
 
         System.load(System.getProperty("user.dir")+"\\native\\lib\\com_haswalk_jvblas_JvBlas.dll");
     }
