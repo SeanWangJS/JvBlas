@@ -51,7 +51,7 @@ public class JBlasTest {
 
         double alpha = 1;
         double beta = 0;
-        JBlas.dgemm(JBlasLayout.ROW_MAJOR, JBlasTranspose.NO_TRANS, JBlasTranspose.NO_TRANS,
+        JBlas.dgemm(101, 111, 111,
                 m, n, k, alpha, A, LDA, B, LDB, beta, C, LDC);
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {

@@ -20,7 +20,6 @@ JNIEXPORT void JNICALL Java_com_haswalk_jblas_JBlas_daxpy
        xElems = (*env) -> GetDoubleArrayElements(env, X, NULL);
        yElems = (*env) -> GetDoubleArrayElements(env, Y, NULL);
        assert(xElems && yElems);
-
        cblas_daxpy((int)n, (double) alpha, xElems, (int)incX, yElems, (int)incY);
 
        (*env) -> ReleaseDoubleArrayElements(env, X, xElems, JNI_ABORT);
@@ -131,6 +130,7 @@ JNIEXPORT void JNICALL Java_com_haswalk_jblas_JBlas_dgemm
 	(*env) -> ReleaseDoubleArrayElements(env, C, cElems, 0);
 	(*env) -> ReleaseDoubleArrayElements(env, B, bElems, JNI_ABORT);
 	(*env) -> ReleaseDoubleArrayElements(env, A, aElems, JNI_ABORT);
+
   }
   
 /*
@@ -154,7 +154,7 @@ JNIEXPORT void JNICALL Java_com_haswalk_jblas_JBlas_dsymm
 	(*env) -> ReleaseDoubleArrayElements(env, C, cElems, 0);
 	(*env) -> ReleaseDoubleArrayElements(env, B, bElems, JNI_ABORT);
 	(*env) -> ReleaseDoubleArrayElements(env, A, aElems, JNI_ABORT);
-	
+
   }
 
 

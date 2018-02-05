@@ -12,24 +12,25 @@ public class JBlas {
 
     static{
 
-        System.out.println(this.getClass().getClassLoader().getResource("relative "));
-        System.setProperty("java.library.path", "C:\\Users\\wangx\\OneDrive\\workspace\\ideaw\\jblas\\lib");
-        Field sysPaths = null;
-        try {
-            sysPaths = ClassLoader.class.getDeclaredField("sys_paths");
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        }
-        sysPaths.setAccessible(true);
-        try {
-            sysPaths.set(null, null);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        System.loadLibrary("com_haswalk_jblas_JBlas");
+//        System.setProperty("java.library.path", "C:\\Users\\wangx\\OneDrive\\workspace\\ideaw\\jblas\\native\\lib");
+//        Field sysPaths = null;
+//        try {
+//            sysPaths = ClassLoader.class.getDeclaredField("sys_paths");
+//        } catch (NoSuchFieldException e) {
+//            e.printStackTrace();
+//        }
+//        sysPaths.setAccessible(true);
+//        try {
+//            sysPaths.set(null, null);
+//        } catch (IllegalAccessException e) {
+//            e.printStackTrace();
+//        }
+//        System.loadLibrary("com_haswalk_jblas_JBlas");
+
+        System.load(System.getProperty("user.dir")+"\\native\\lib\\com_haswalk_jblas_JBlas.dll");
     }
 
-    /* level 1 */
+    /*================================ level 1 =======================================*/
 
     /**
      * constant alpha times a vector x plus a vector y
@@ -96,7 +97,7 @@ public class JBlas {
      * */
     public static native double dspr(int layout, int uplo, int n, double alpha, double[] X, int incX, double[] Ap);
 
-    /** level 3 **/
+    /*================================ level 3 =======================================*/
 
     /**
      * Performs the matrix-matrix operations
