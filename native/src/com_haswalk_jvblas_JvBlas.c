@@ -3,18 +3,18 @@
 #include <assert.h>
 #include "mkl_cblas.h"
 
-#ifndef _Included_com_haswalk_jblas_JBlas
-#define _Included_com_haswalk_jblas_JBlas
+#ifndef _Included_com_haswalk_jvblas_JvBlas
+#define _Included_com_haswalk_jvblas_JvBlas
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 /*
- * Class:     com_haswalk_jblas_JBlas
+ * Class:     com_haswalk_jvblas_JvBlas
  * Method:    daxpy
  * Signature: (ID[DI[DI)V
  */
-JNIEXPORT void JNICALL Java_com_haswalk_jblas_JBlas_daxpy
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_daxpy
   (JNIEnv * env, jclass clazz, jint n, jdouble alpha, jdoubleArray X, jint incX, jdoubleArray Y, jint incY){
        jdouble *xElems, *yElems;
        xElems = (*env) -> GetDoubleArrayElements(env, X, NULL);
@@ -27,11 +27,11 @@ JNIEXPORT void JNICALL Java_com_haswalk_jblas_JBlas_daxpy
   }
 
 /*
- * Class:     com_haswalk_jblas_JBlas
+ * Class:     com_haswalk_jvblas_JvBlas
  * Method:    ddot
  * Signature: (I[DI[DI)V
  */
-JNIEXPORT jdouble JNICALL Java_com_haswalk_jblas_JBlas_ddot
+JNIEXPORT jdouble JNICALL Java_com_haswalk_jvblas_JvBlas_ddot
   (JNIEnv * env, jclass clazz, jint n, jdoubleArray X, jint incX, jdoubleArray Y, jint incY) {
 	  jdouble *xElems, *yElems;
 	  xElems = (*env) -> GetDoubleArrayElements(env, X, NULL);
@@ -46,11 +46,11 @@ JNIEXPORT jdouble JNICALL Java_com_haswalk_jblas_JBlas_ddot
   }
 
 /*
- * Class:     com_haswalk_jblas_JBlas
+ * Class:     com_haswalk_jvblas_JvBlas
  * Method:    dnrm2
  * Signature: (I[DI)D
  */
-JNIEXPORT jdouble JNICALL Java_com_haswalk_jblas_JBlas_dnrm2
+JNIEXPORT jdouble JNICALL Java_com_haswalk_jvblas_JvBlas_dnrm2
   (JNIEnv * env, jclass clazz, jint n, jdoubleArray X, jint incX){
 	  jdouble *xElems = (*env) -> GetDoubleArrayElements(env, X, NULL);
 	  assert(xElems);
@@ -62,11 +62,11 @@ JNIEXPORT jdouble JNICALL Java_com_haswalk_jblas_JBlas_dnrm2
   }
   
   /*
- * Class:     com_haswalk_jblas_JBlas
+ * Class:     com_haswalk_jvblas_JvBlas
  * Method:    dasum
  * Signature: (I[DI)D
  */
-JNIEXPORT jdouble JNICALL Java_com_haswalk_jblas_JBlas_dasum
+JNIEXPORT jdouble JNICALL Java_com_haswalk_jvblas_JvBlas_dasum
   (JNIEnv * env, jclass clazz, jint n, jdoubleArray X, jint incX){
 	  jdouble *xElems = (*env) -> GetDoubleArrayElements(env, X, NULL);
 	  assert(xElems);
@@ -79,11 +79,11 @@ JNIEXPORT jdouble JNICALL Java_com_haswalk_jblas_JBlas_dasum
   }
 
   /*
-   * Class:     com_haswalk_jblas_JBlas
+   * Class:     com_haswalk_jvblas_JvBlas
    * Method:    dspr
    * Signature: (IIID[DI[DI)D
    */
-  JNIEXPORT jdouble JNICALL Java_com_haswalk_jblas_JBlas_dsyr
+  JNIEXPORT jdouble JNICALL Java_com_haswalk_jvblas_JvBlas_dsyr
     (JNIEnv * env, jclass clazz, jint layout, jint uplo, jint n, jdouble alpha, jdoubleArray X, jint incX, jdoubleArray A, jint LDA) {
       jdouble *xElems = (*env) -> GetDoubleArrayElements(env, X, NULL);
       jdouble *aElems = (*env) -> GetDoubleArrayElements(env, A, NULL);
@@ -96,11 +96,11 @@ JNIEXPORT jdouble JNICALL Java_com_haswalk_jblas_JBlas_dasum
   }
 
 /*
- * Class:     com_haswalk_jblas_JBlas
+ * Class:     com_haswalk_jvblas_JvBlas
  * Method:    dspr
  * Signature: (IIID[DI[D)D
  */
-JNIEXPORT jdouble JNICALL Java_com_haswalk_jblas_JBlas_dspr
+JNIEXPORT jdouble JNICALL Java_com_haswalk_jvblas_JvBlas_dspr
   (JNIEnv * env, jclass clazz, jint layout, jint uplo, jint n, jdouble alpha, jdoubleArray X, jint incX, jdoubleArray Ap){
         jdouble *xElems = (*env) -> GetDoubleArrayElements(env, X, NULL);
         jdouble *aElems = (*env) -> GetDoubleArrayElements(env, Ap, NULL);
@@ -111,11 +111,11 @@ JNIEXPORT jdouble JNICALL Java_com_haswalk_jblas_JBlas_dspr
         (*env) -> ReleaseDoubleArrayElements(env, X, xElems, JNI_ABORT);}
 
 /*
- * Class:     com_haswalk_jblas_JBlas
+ * Class:     com_haswalk_jvblas_JvBlas
  * Method:    dgemm
  * Signature: (IIIIIID[DI[DID[DI)V
  */
-JNIEXPORT void JNICALL Java_com_haswalk_jblas_JBlas_dgemm
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dgemm
   (JNIEnv * env, jclass clazz, jint order, jint transA, jint transB, jint m, jint n, jint k, 
   jdouble alpha, jdoubleArray A, jint LDA, jdoubleArray B, jint LDB, jdouble beta, jdoubleArray C, jint LDC){
 	  
@@ -134,11 +134,11 @@ JNIEXPORT void JNICALL Java_com_haswalk_jblas_JBlas_dgemm
   }
   
 /*
- * Class:     com_haswalk_jblas_JBlas
+ * Class:     com_haswalk_jvblas_JvBlas
  * Method:    dsymm
  * Signature: (IIIIID[DI[DID[DI)V
  */
-JNIEXPORT void JNICALL Java_com_haswalk_jblas_JBlas_dsymm
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dsymm
   (JNIEnv * env, jclass clazz, jint order, jint side, jint uplo, jint m, jint n, jdouble alpha, 
   jdoubleArray A, jint LDA, jdoubleArray B, jint LDB, jdouble beta, jdoubleArray C, jint LDC) {
 	  

@@ -1,8 +1,8 @@
-package com.haswalk.jblas.benchmark;
+package com.haswalk.jvblas.benchmark;
 
-import com.haswalk.jblas.JBlas;
-import com.haswalk.jblas.JBlasLayout;
-import com.haswalk.jblas.JBlasTranspose;
+import com.haswalk.jvblas.JvBlas;
+import com.haswalk.jvblas.JvBlasLayout;
+import com.haswalk.jvblas.JvBlasTranspose;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
@@ -43,7 +43,7 @@ public class DgemmBenchmark {
     public void run() {
         double alpha = 1;
         double beta = 0;
-        JBlas.dgemm(JBlasLayout.ROW_MAJOR, JBlasTranspose.NO_TRANS, JBlasTranspose.NO_TRANS,
+        JvBlas.dgemm(JvBlasLayout.ROW_MAJOR, JvBlasTranspose.NO_TRANS, JvBlasTranspose.NO_TRANS,
                 m, n, k, alpha, A, LDA, B, LDB, beta, C, LDC);
     }
 

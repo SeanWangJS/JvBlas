@@ -1,18 +1,15 @@
-package com.haswalk.jblas;
+package com.haswalk.jvblas;
 
 //import org.intellij.lang.annotations.MagicConstant;
-
-import java.io.File;
-import java.lang.reflect.Field;
 
 /**
  * Created by wangx on 2017/10/10.
  */
-public class JBlas {
+public class JvBlas {
 
     static{
 
-//        System.setProperty("java.library.path", "C:\\Users\\wangx\\OneDrive\\workspace\\ideaw\\jblas\\native\\lib");
+//        System.setProperty("java.library.path", "C:\\Users\\wangx\\OneDrive\\workspace\\ideaw\\jvblas\\native\\lib");
 //        Field sysPaths = null;
 //        try {
 //            sysPaths = ClassLoader.class.getDeclaredField("sys_paths");
@@ -27,7 +24,7 @@ public class JBlas {
 //        }
 //        System.loadLibrary("com_haswalk_jblas_JBlas");
 
-        System.load(System.getProperty("user.dir")+"\\native\\lib\\com_haswalk_jblas_JBlas.dll");
+        System.load(System.getProperty("user.dir")+"\\native\\lib\\com_haswalk_jvblas_JvBlas.dll");
     }
 
     /*================================ level 1 =======================================*/
@@ -76,9 +73,9 @@ public class JBlas {
      * @param layout array memory layout: 101 = Row Major (C style), 102 = Col Major (Fortran style)
      * */
     public static native double dgemv(
-//            @MagicConstant(intValues = {JBlasLayout.ROW_MAJOR, JBlasLayout.COL_MAJOR})
+//            @MagicConstant(intValues = {JvBlasLayout.ROW_MAJOR, JvBlasLayout.COL_MAJOR})
                     int layout,
-//            @MagicConstant(intValues = {JBlasTranspose.NO_TRANS, JBlasTranspose.TRANS})
+//            @MagicConstant(intValues = {JvBlasTranspose.NO_TRANS, JvBlasTranspose.TRANS})
                     int transA, int m, int n, double alpha, double[] A, int LDA, double[] X, int incX, double beta, double[] Y, int incY);
 
     /**
@@ -108,11 +105,11 @@ public class JBlas {
      * @param layout array memory layout: 101 = Row Major (C style), 102 = Col Major (Fortran style)
      * */
     public static native void dgemm(
-//            @MagicConstant(intValues = {JBlasLayout.ROW_MAJOR, JBlasLayout.COL_MAJOR})
+//            @MagicConstant(intValues = {JvBlasLayout.ROW_MAJOR, JvBlasLayout.COL_MAJOR})
                     int layout,
-//            @MagicConstant(intValues = {JBlasTranspose.NO_TRANS, JBlasTranspose.TRANS})
+//            @MagicConstant(intValues = {JvBlasTranspose.NO_TRANS, JvBlasTranspose.TRANS})
                     int transA,
-//            @MagicConstant(intValues = {JBlasTranspose.NO_TRANS, JBlasTranspose.TRANS})
+//            @MagicConstant(intValues = {JvBlasTranspose.NO_TRANS, JvBlasTranspose.TRANS})
                     int transB, int m, int n, int k, double alpha, double[] A, int LDA, double[] B, int LDB, double beta, double[] C, int LDC);
 
     /**
@@ -126,11 +123,11 @@ public class JBlas {
      * @param uplo define A is lower symmetric or upper symmetric
      * */
     public static native void dsymm(
-//            @MagicConstant(intValues = {JBlasLayout.ROW_MAJOR, JBlasLayout.COL_MAJOR})
+//            @MagicConstant(intValues = {JvBlasLayout.ROW_MAJOR, JvBlasLayout.COL_MAJOR})
                     int layout,
-//            @MagicConstant(intValues = {JBlasSide.LEFT, JBlasSide.RIGHT})
+//            @MagicConstant(intValues = {JvBlasSide.LEFT, JvBlasSide.RIGHT})
                     int side,
-//            @MagicConstant(intValues = {JBlasUplo.UPPER, JBlasUplo.LOWER})
+//            @MagicConstant(intValues = {JvBlasUplo.UPPER, JvBlasUplo.LOWER})
                     int uplo, int m, int n, double alpha, double[] A, int LDA, double[] B, int LDB, double beta, double[] C, int LDC);
 
 }

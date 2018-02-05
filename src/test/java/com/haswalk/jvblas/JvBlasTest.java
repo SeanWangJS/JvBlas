@@ -1,22 +1,20 @@
-package com.haswalk.jblas;
+package com.haswalk.jvblas;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import java.lang.reflect.Field;
 import java.util.Arrays;
 
 /**
  * Created by wangx on 2017/10/16.
  */
-public class JBlasTest {
+public class JvBlasTest {
 
     @Test
     public void testddot() {
         double[] X = {1,2,3,4,5,6,7};
         double[] Y = {1,2,3,4,5,6,7};
         int n = X.length;
-        double ddot = JBlas.ddot(n, X, 1, Y, 1);
+        double ddot = JvBlas.ddot(n, X, 1, Y, 1);
         System.out.println(ddot);
     }
 
@@ -24,7 +22,7 @@ public class JBlasTest {
     public void testdnrm2() {
         double[] x = {1,2,3,4};
         int n = x.length;
-        double v = JBlas.dnrm2(n, x, 1);
+        double v = JvBlas.dnrm2(n, x, 1);
         System.out.println(v);
     }
 
@@ -32,7 +30,7 @@ public class JBlasTest {
     public void testdasum() {
         double[] x = {-1, 1, -10, 1, 2};
         int n = x.length;
-        double dasum = JBlas.dasum(n, x, 1);
+        double dasum = JvBlas.dasum(n, x, 1);
         System.out.println(dasum);
     }
 
@@ -51,7 +49,7 @@ public class JBlasTest {
 
         double alpha = 1;
         double beta = 0;
-        JBlas.dgemm(101, 111, 111,
+        JvBlas.dgemm(101, 111, 111,
                 m, n, k, alpha, A, LDA, B, LDB, beta, C, LDC);
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -77,7 +75,7 @@ public class JBlasTest {
         double[] C = new double[m * n];
         double alpha = 1;
         double beta = 0;
-        JBlas.dsymm(JBlasLayout.ROW_MAJOR, JBlasSide.RIGHT, JBlasUplo.LOWER,
+        JvBlas.dsymm(JvBlasLayout.ROW_MAJOR, JvBlasSide.RIGHT, JvBlasUplo.LOWER,
                 m, n, alpha, A, LDA, B, LDB, beta, C, LDC);
 
         for (int i = 0; i < m; i++) {
@@ -93,7 +91,7 @@ public class JBlasTest {
         double[] x = {1,2,3,4,5,6};
         double[] y = {2,3,4,5,6,7};
         double alpha = 10;
-        JBlas.daxpy(x.length, alpha, x, 1, y, 1);
+        JvBlas.daxpy(x.length, alpha, x, 1, y, 1);
         System.out.println(Arrays.toString(x));
         System.out.println(Arrays.toString(y));
     }
@@ -103,7 +101,7 @@ public class JBlasTest {
         double[] x = {1,2,3};
         double[] A = new double[x.length * x.length];
         int LDA = 9;
-        JBlas.dsyr(JBlasLayout.ROW_MAJOR, JBlasUplo.LOWER, x.length, 1, x, 1, A, LDA);
+        JvBlas.dsyr(JvBlasLayout.ROW_MAJOR, JvBlasUplo.LOWER, x.length, 1, x, 1, A, LDA);
         System.out.println(Arrays.toString(A));
 
     }
@@ -112,7 +110,7 @@ public class JBlasTest {
     public void testdspr(){
         double[] x = {1,2,3};
         double[] A = new double[(x.length * (x.length + 1)) / 2];
-        JBlas.dspr(JBlasLayout.ROW_MAJOR, JBlasUplo.UPPER, x.length, 1, x, 1, A);
+        JvBlas.dspr(JvBlasLayout.ROW_MAJOR, JvBlasUplo.UPPER, x.length, 1, x, 1, A);
         System.out.println(Arrays.toString(A));
     }
 }
