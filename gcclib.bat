@@ -1,2 +1,2 @@
 gcc -c .\native\src\com_haswalk_jvblas_JvBlas.c -o .\native\src\com_haswalk_jvblas_JvBlas.o -I "%MKL_ROOT%\include" -I "%JAVA_HOME%\include" -I "%JAVA_HOME%\include\win32"
-gcc -shared -o .\native\lib\com_haswalk_jvblas_JvBlas.dll .\native\src\com_haswalk_jvblas_JvBlas.o -L "%MKL_ROOT%\lib\intel64_win" -lmkl_rt
+gcc -shared -o .\native\lib\com_haswalk_jvblas_JvBlas.dll .\native\src\com_haswalk_jvblas_JvBlas.o -L "%MKL_ROOT%\lib\intel64" -lmkl_rt

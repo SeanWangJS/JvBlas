@@ -6,6 +6,8 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
+import java.nio.channels.Channel;
+import java.nio.channels.SocketChannel;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -16,7 +18,6 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @State(Scope.Thread)
 public class DgemmBenchmark_java {
-
     private double[] A, B, C;
     private int m, n, k;
     private int LDA, LDB, LDC;

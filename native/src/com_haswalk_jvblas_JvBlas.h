@@ -9,6 +9,62 @@ extern "C" {
 #endif
 /*
  * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    drotg
+ * Signature: (DD)[D
+ */
+JNIEXPORT jdoubleArray JNICALL Java_com_haswalk_jvblas_JvBlas_drotg
+  (JNIEnv *, jclass, jdouble, jdouble);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    drotmg
+ * Signature: (DDDD)[D
+ */
+JNIEXPORT jdoubleArray JNICALL Java_com_haswalk_jvblas_JvBlas_drotmg
+  (JNIEnv *, jclass, jdouble, jdouble, jdouble, jdouble);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    drot
+ * Signature: (I[DI[DIDD)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_drot
+  (JNIEnv *, jclass, jint, jdoubleArray, jint, jdoubleArray, jint, jdouble, jdouble);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    drotm
+ * Signature: (I[DI[DI[D)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_drotm
+  (JNIEnv *, jclass, jint, jdoubleArray, jint, jdoubleArray, jint, jdoubleArray);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dswap
+ * Signature: (I[DI[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dswap
+  (JNIEnv *, jclass, jint, jdoubleArray, jint, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dscal
+ * Signature: (ID[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dscal
+  (JNIEnv *, jclass, jint, jdouble, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dcopy
+ * Signature: (I[DI[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dcopy
+  (JNIEnv *, jclass, jint, jdoubleArray, jint, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
  * Method:    daxpy
  * Signature: (ID[DI[DI)V
  */
@@ -21,6 +77,14 @@ JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_daxpy
  * Signature: (I[DI[DI)D
  */
 JNIEXPORT jdouble JNICALL Java_com_haswalk_jvblas_JvBlas_ddot
+  (JNIEnv *, jclass, jint, jdoubleArray, jint, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dsdot
+ * Signature: (I[DI[DI)D
+ */
+JNIEXPORT jdouble JNICALL Java_com_haswalk_jvblas_JvBlas_dsdot
   (JNIEnv *, jclass, jint, jdoubleArray, jint, jdoubleArray, jint);
 
 /*
@@ -41,11 +105,107 @@ JNIEXPORT jdouble JNICALL Java_com_haswalk_jvblas_JvBlas_dasum
 
 /*
  * Class:     com_haswalk_jvblas_JvBlas
- * Method:    dgemv
- * Signature: (IIIID[DI[DID[DI)D
+ * Method:    idamax
+ * Signature: (I[DI)I
  */
-JNIEXPORT jdouble JNICALL Java_com_haswalk_jvblas_JvBlas_dgemv
+JNIEXPORT jint JNICALL Java_com_haswalk_jvblas_JvBlas_idamax
+  (JNIEnv *, jclass, jint, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dgemv
+ * Signature: (IIIID[DI[DID[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dgemv
   (JNIEnv *, jclass, jint, jint, jint, jint, jdouble, jdoubleArray, jint, jdoubleArray, jint, jdouble, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dgbmv
+ * Signature: (IIIIIID[DI[DID[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dgbmv
+  (JNIEnv *, jclass, jint, jint, jint, jint, jint, jint, jdouble, jdoubleArray, jint, jdoubleArray, jint, jdouble, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dsymv
+ * Signature: (IIID[DI[DID[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dsymv
+  (JNIEnv *, jclass, jint, jint, jint, jdouble, jdoubleArray, jint, jdoubleArray, jint, jdouble, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dsbmv
+ * Signature: (IIIID[DI[DID[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dsbmv
+  (JNIEnv *, jclass, jint, jint, jint, jint, jdouble, jdoubleArray, jint, jdoubleArray, jint, jdouble, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dspmv
+ * Signature: (IIID[D[DID[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dspmv
+  (JNIEnv *, jclass, jint, jint, jint, jdouble, jdoubleArray, jdoubleArray, jint, jdouble, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dtrmv
+ * Signature: (IIIII[DI[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dtrmv
+  (JNIEnv *, jclass, jint, jint, jint, jint, jint, jdoubleArray, jint, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dtbmv
+ * Signature: (IIIIII[DI[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dtbmv
+  (JNIEnv *, jclass, jint, jint, jint, jint, jint, jint, jdoubleArray, jint, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dtpmv
+ * Signature: (IIIII[D[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dtpmv
+  (JNIEnv *, jclass, jint, jint, jint, jint, jint, jdoubleArray, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dtrsv
+ * Signature: (IIIII[DI[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dtrsv
+  (JNIEnv *, jclass, jint, jint, jint, jint, jint, jdoubleArray, jint, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dtbsv
+ * Signature: (IIIIII[DI[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dtbsv
+  (JNIEnv *, jclass, jint, jint, jint, jint, jint, jint, jdoubleArray, jint, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dtpsv
+ * Signature: (IIIII[D[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dtpsv
+  (JNIEnv *, jclass, jint, jint, jint, jint, jint, jdoubleArray, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dger
+ * Signature: (IIID[DI[DI[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dger
+  (JNIEnv *, jclass, jint, jint, jint, jdouble, jdoubleArray, jint, jdoubleArray, jint, jdoubleArray, jint);
 
 /*
  * Class:     com_haswalk_jvblas_JvBlas
@@ -65,6 +225,22 @@ JNIEXPORT jdouble JNICALL Java_com_haswalk_jvblas_JvBlas_dspr
 
 /*
  * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dsyr2
+ * Signature: (IIID[DI[DI[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dsyr2
+  (JNIEnv *, jclass, jint, jint, jint, jdouble, jdoubleArray, jint, jdoubleArray, jint, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dspr2
+ * Signature: (IIID[DI[DI[D)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dspr2
+  (JNIEnv *, jclass, jint, jint, jint, jdouble, jdoubleArray, jint, jdoubleArray, jint, jdoubleArray);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
  * Method:    dgemm
  * Signature: (IIIIIID[DI[DID[DI)V
  */
@@ -78,6 +254,38 @@ JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dgemm
  */
 JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dsymm
   (JNIEnv *, jclass, jint, jint, jint, jint, jint, jdouble, jdoubleArray, jint, jdoubleArray, jint, jdouble, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dsyrk
+ * Signature: (IIIIID[DID[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dsyrk
+  (JNIEnv *, jclass, jint, jint, jint, jint, jint, jdouble, jdoubleArray, jint, jdouble, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dsyr2k
+ * Signature: (IIIIID[DI[DID[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dsyr2k
+  (JNIEnv *, jclass, jint, jint, jint, jint, jint, jdouble, jdoubleArray, jint, jdoubleArray, jint, jdouble, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dtrmm
+ * Signature: (IIIIIIID[DI[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dtrmm
+  (JNIEnv *, jclass, jint, jint, jint, jint, jint, jint, jint, jdouble, jdoubleArray, jint, jdoubleArray, jint);
+
+/*
+ * Class:     com_haswalk_jvblas_JvBlas
+ * Method:    dtrsm
+ * Signature: (IIIIIIID[DI[DI)V
+ */
+JNIEXPORT void JNICALL Java_com_haswalk_jvblas_JvBlas_dtrsm
+  (JNIEnv *, jclass, jint, jint, jint, jint, jint, jint, jint, jdouble, jdoubleArray, jint, jdoubleArray, jint);
 
 #ifdef __cplusplus
 }
