@@ -2,4 +2,6 @@ target/
 *.iml
 .o
 .dll
-.vscode
+.vscode/
+.gradle/
+.idea/
