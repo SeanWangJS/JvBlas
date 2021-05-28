@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Gradle: com.haswalk.filetransfer:filetransfer:1.0-SNAPSHOT">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/haswalk/filetransfer/filetransfer/1.0-SNAPSHOT/filetransfer-1.0-SNAPSHOT.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
